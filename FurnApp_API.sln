@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnApp_API", "FurnApp_API.csproj", "{F3B6FCEC-49BB-42B3-ACE9-16B79E6E80AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3B6FCEC-49BB-42B3-ACE9-16B79E6E80AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B6FCEC-49BB-42B3-ACE9-16B79E6E80AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B6FCEC-49BB-42B3-ACE9-16B79E6E80AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B6FCEC-49BB-42B3-ACE9-16B79E6E80AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E72187AA-AFC3-4260-ADF1-47E093189977}
+	EndGlobalSection
+EndGlobal
