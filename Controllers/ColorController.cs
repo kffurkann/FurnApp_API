@@ -45,7 +45,7 @@ namespace FurnApp_API.Controllers
                 return BadRequest(response);
             }
         }
-        /*
+        
         [HttpDelete("DeleteColor")]
         public async Task<IActionResult> DeleteColor(int ColorId)
         {
@@ -90,7 +90,7 @@ namespace FurnApp_API.Controllers
             {
                 return BadRequest(response);
             }
-        }*/
+        }
 
     }
 }
