@@ -36,6 +36,7 @@ namespace FurnApp_API
         {
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FurnApp_API", Version = "v1" });
