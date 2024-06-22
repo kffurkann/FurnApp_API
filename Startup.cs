@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FurnApp_API
@@ -35,7 +37,15 @@ namespace FurnApp_API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+           
+
+            services.AddControllers()
+            .AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                options.JsonSerializerOptions.MaxDepth = 64; // veya istediðiniz derinlik deðeri
+                // Diðer gerekli ayarlarý da burada belirtebilirsiniz
+            });
 
             services.AddSwaggerGen(c =>
             {
