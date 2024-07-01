@@ -1,4 +1,4 @@
-﻿using FurnApp_API.DTO;
+﻿﻿using FurnApp_API.DTO;
 using FurnApp_API.Models;
 using MediatR;
 using System.Threading;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FurnApp_API.Med.Commands
 {
-    public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, ApiResponse<PaymentDTO2>>
+    public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, ApiResponse<decimal>>
     {
         private readonly FurnAppContext _db;
 
@@ -15,15 +15,15 @@ namespace FurnApp_API.Med.Commands
             _db = db;
         }
 
-        public async Task<ApiResponse<PaymentDTO2>> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
+        public async Task<ApiResponse<decimal>> Handle(CreatePaymentCommand request, CancellationToken cancellationToken)
         {
             var product = await _db.Products.FindAsync(request.ProductId);
 
             if (product == null)
             {
-                return new ApiResponse<PaymentDTO2>
+                return new ApiResponse<decimal>
                 {
-                    Data = null,
+                    Data = 0,
                     Message = "Product not found!",
                     Success = false
                 };
@@ -31,9 +31,9 @@ namespace FurnApp_API.Med.Commands
 
             if (product.ProductStock < request.Quantity)
             {
-                return new ApiResponse<PaymentDTO2>
+                return new ApiResponse<decimal>
                 {
-                    Data = null,
+                    Data = 0,
                     Message = "Not enough stock!",
                     Success = false
                 };
@@ -43,9 +43,9 @@ namespace FurnApp_API.Med.Commands
 
             if (product.ProductStock < 0)
             {
-                return new ApiResponse<PaymentDTO2>
+                return new ApiResponse<decimal>
                 {
-                    Data = null,
+                    Data =0,
                     Message = "Insufficient stock!",
                     Success = false
                 };
@@ -68,22 +68,11 @@ namespace FurnApp_API.Med.Commands
 
             // Ürün stoğunu güncelle
             await _db.SaveChangesAsync();
-
-            var paymentDto = new PaymentDTO2
+            decimal price =(decimal)((product.ProductPrice * request.Quantity)+request.CargoPrice);
+  
+            return new ApiResponse<decimal>
             {
-                CreditCardNo = request.CreditCardNo,
-                CardName = request.CardName,
-                CardMonth = request.CardMonth,
-                CardYear = request.CardYear,
-                CardCvv = request.CardCvv,
-                CargoPrice = request.CargoPrice,
-                UsersId = request.UsersId,
-                CargoCompany = request.CargoCompany
-            };
-
-            return new ApiResponse<PaymentDTO2>
-            {
-                Data = paymentDto,
+                Data = price,
                 Message = "Payment and stock update successful!",
                 Success = true
             };

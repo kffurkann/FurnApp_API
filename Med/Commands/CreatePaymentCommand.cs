@@ -2,7 +2,7 @@
 using FurnApp_API.Models;
 using MediatR;
 
-public class CreatePaymentCommand : IRequest<ApiResponse<PaymentDTO2>>
+public class CreatePaymentCommand : IRequest<ApiResponse<decimal>>
 {
     public int CreditCardNo { get; set; }
     public string CardName { get; set; }

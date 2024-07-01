@@ -45,7 +45,7 @@ namespace FurnApp_API.Controllers
             }
 
         }
-        /*
+        
         [HttpPost("LogIn")]
         public async Task<IActionResult> LogInUserAsync(UserDTO user)
         {
@@ -63,6 +63,22 @@ namespace FurnApp_API.Controllers
             }
         }
 
+        [HttpGet("GetUsers")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var query = new GetUsersQuery();
+            var response = await mediator.Send(query);
+
+            if (response.Success)
+            {
+                return Ok(response); 
+            }
+            else
+            {
+                return BadRequest(response);
+            }
+        }
+        /*
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateUserAsync(string userMail, UserUpdateDTO userUpdate)
         {
