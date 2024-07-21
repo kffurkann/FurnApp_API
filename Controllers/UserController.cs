@@ -78,7 +78,7 @@ namespace FurnApp_API.Controllers
                 return BadRequest(response);
             }
         }
-        /*
+        
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateUserAsync(string userMail, UserUpdateDTO userUpdate)
         {
@@ -92,7 +92,7 @@ namespace FurnApp_API.Controllers
             {
                 return BadRequest(response);
             }
-        }*/
+        }
 
         [HttpDelete("Delete/{email}")]
         public async Task<IActionResult> DeleteUser(string email)

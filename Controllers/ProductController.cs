@@ -111,7 +111,7 @@ namespace FurnApp_API.Controllers
                 return BadRequest(response);
             }
         }
-        /*
+        
         [HttpGet("GetEightProducts")]
         public async Task<IActionResult> GetEightProducts()
         {
@@ -141,6 +141,6 @@ namespace FurnApp_API.Controllers
             {
                 return BadRequest(response);
             }
-        }*/
+        }
     }
 }
