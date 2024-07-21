@@ -9,7 +9,6 @@ namespace FurnApp_API.Helper
 {
     public static class DtoConverter
     {
-        
         public static User UserConverter(UserDTO dto)
         {
             User user = new User
@@ -22,7 +21,7 @@ namespace FurnApp_API.Helper
             };
             return user;
         }
-        
+
         public static Address AddressConverter(AddressDTO2 dto)
         {
             Address address = new Address
@@ -37,7 +36,18 @@ namespace FurnApp_API.Helper
             };
             return address;
         }
-
+        public static Order OrdersConverter(OrdersDTO2 dto)
+        {
+            Order order = new Order
+            {
+                OrderDate = dto.OrderDate,
+                CargoNo = dto.CargoNo,
+                UsersId = dto.UsersId,
+                ProductId = dto.ProductId,
+                AddressId = dto.AddressId
+            };
+            return order;
+        }
         public static Payment PaymentConverter(PaymentDTO2 dto)
         {
             Payment payment = new Payment
@@ -53,6 +63,5 @@ namespace FurnApp_API.Helper
             };
             return payment;
         }
-
     }
 }
